@@ -53,4 +53,9 @@ function getInquiries()
 }
 
 include_once "logic/pagination.php";
+?>
+<script>
+    const inquiriesArray = <?php echo json_encode($inquiriesArray); ?>;
+</script>
+<?php
 include_once "view/dashboard.html";

@@ -529,18 +529,18 @@
         </div>
       </main>
     </div>
+  </div>
+  <!--Paginate start-->
 
-    <!--Paginate start-->
+  <nav aria-label="Page navigation" class="dropdown position-fixed bottom-0 ms-4">
+    <ul class="pagination">
+      <?php if ($currentPage > 1) : ?>
+      <li class="page-item">
+        <a class="page-link pgn-bd-primary" href="?page=<?php echo ($currentPage - 1); ?>">Previous</a>
+      </li>
+      <?php endif; ?>
 
-    <nav aria-label="Page navigation" class="dropdown position-fixed bottom-0 ms-4">
-      <ul class="pagination">
-        <?php if ($currentPage > 1) : ?>
-        <li class="page-item">
-          <a class="page-link pgn-bd-primary" href="?page=<?php echo ($currentPage - 1); ?>">Previous</a>
-        </li>
-        <?php endif; ?>
-
-        <?php
+      <?php
           $numPagesToShow = 5; // Number of pages to show in the pagination
 
           //Calculate the range of pages to display around the current page
@@ -553,26 +553,26 @@
 
           ?>
 
-        <li class="page-item <?php echo ($i === $currentPage) ? 'active' : ''; ?>">
-          <a class="page-link pgn-bd-primary" href="?page=<?php echo $i; ?>">
-            <?php echo $i; ?>
-          </a>
-        </li>
+      <li class="page-item <?php echo ($i === $currentPage) ? 'active' : ''; ?>">
+        <a class="page-link pgn-bd-primary" href="?page=<?php echo $i; ?>">
+          <?php echo $i; ?>
+        </a>
+      </li>
 
-        <?php endfor; ?>
+      <?php endfor; ?>
 
-        <?php if ($currentPage < $totalPages) : ?>
+      <?php if ($currentPage < $totalPages) : ?>
 
-        <li class="page-item">
-          <a class="page-link pgn-bd-primary" href="?page=<?php echo ($currentPage + 1); ?>">Next</a>
-        </li>
+      <li class="page-item">
+        <a class="page-link pgn-bd-primary" href="?page=<?php echo ($currentPage + 1); ?>">Next</a>
+      </li>
 
-        <?php endif; ?>
-      </ul>
-    </nav>
+      <?php endif; ?>
+    </ul>
+  </nav>
 
-    <!--Paginate end-->
-  </div>
+  <!--Paginate end-->
+
   <script src="public/js/bootstrap.js"></script>
   <script src="public/js/jquery.js"></script>
   <script src="public/js/toastr.js"></script>
@@ -604,6 +604,7 @@
         toastr.success(message);
     }
   </script>
+
 </body>
 
 </html>
