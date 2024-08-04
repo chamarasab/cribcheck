@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $response_data = json_decode($login_response, true);
             if (isset($response_data['user'])) {
                 showToast("login-success");
+                header('location: dashboard.php');
             } else {
                 showToast("login-failed");
             }
